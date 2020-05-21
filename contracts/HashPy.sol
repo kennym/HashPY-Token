@@ -8,12 +8,14 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 // LE DECIMOS A LA RED DE ETHEREUM QUE CREAMOS UN TOKEN ERC20
 contract HashPyToken is ERC20 {
     // CON EL NOMBRE 'HashPy', y con la abreviación 'HASH'
-    constructor() ERC20("HashPy", "HASH") public {
+    constructor() ERC20("HashPy $", "HASHPY") public {
         // Le damos solo dos decimales nuestro nuevo token
         _setupDecimals(2); // puedo enviar por ejemplo 100.02 HASH
 
-        uint cantidadMiembros = 304;
-        _mint(msg.sender, cantidadMiembros * 10);
+        uint cantidadMiembros = 300;
+        // Fórmula secreta del BCP creado por @nelruk
+        uint tokenesACrear = cantidadMiembros * 100 * 35;
+        _mint(msg.sender, tokenesACrear);
         // O PODEMOS IR MODO RESERVA FEDERAL DE EEUU (FED)
         // _mint(msg.sender, 1000000000000000000000000000 * (10 ** uint256(decimals()))
         // IMPRIMIMOS TRILLONNEEEEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSSSSSS
